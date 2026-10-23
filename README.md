@@ -15,3 +15,62 @@ Calcular el precio total de la orden
 Validar las opciones ingresadas por el usuario
 Permitir agregar varios productos a un mismo pedido
 Mostrar el resumen de la compra
+
+## Pseudocódigo
+
+```
+INICIO
+Definir constantes del menu:
+-NOMBRES_PRODUCTOS: lista con el nomber de cada producto
+-PRECIOS_PRODUCTOS: lista con el precio de cada producto
+
+Funcion valida_opcion(opcion, total_productos):
+  if opcion es un numero:
+    if el numero esta entre el 1 y el total de productos:
+      return true
+  return false
+
+Funcion valida_cantidad(cantidad):
+  If cantidad es un numero:
+    If cantidad > 0:
+      return true
+  return false
+
+Funcion calcula_subtotal(precio, cantidad):
+  return precio * cantidad
+
+Funcion muestra_menu(nombres, precios):
+  for cada producto de la lista:
+    mostrar su numero, nombre y precio
+
+Funcion muestra_resumen(pedido, total):
+  for cada producto del pedido:
+    Mostrar el producto
+  Mostrar el total a pagar
+
+Funcion toma_pedido(nombres, precios):
+  Pedido = lista vacia
+  total = 0
+  seguir = "s"
+  while seguir sea "s":
+    mostrar el menu
+    pedir opcion al usuario
+    if la opcion es valida:
+      pedir cantidad al usuario
+      if la cantidad es valida:
+        subtotal = calcula_subtotal(precio, cantidad)
+        total = total + subtotal
+        agregar el producto al pedido
+      elif:
+        mostrar "cantidad invalida"
+    elif:
+      mostrar "opcion invalida"
+    preguntar si desea agregar otro producto
+  return pedido, total
+
+PROGRAMA PRINCIPAL:
+  pedido, total = toma_pedido(NOMBRES_PRODUCTOS, PRECIOS_PRODUCTOS)
+  muestra_resumen(pedido, total)
+  Mostrar mensaje de despedida (¡Provecho!, Gracias por su pedido, etc.)
+FIN
+```
